@@ -1,16 +1,16 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="description" content="Pracabar é um serviço online gratuito que prevê quanto tempo você levará para ler um livro, com base na velocidade de sua leitura e disponibilidade diária de leitura.">
+	<meta name="author" content="Vanilla Inc.">
 	<link rel="icon" href="assets/img/favicon.ico">
 
-	<title>Pracabar</title>
+	<title>Pracabar - quanto tempo você leva para ler um livro</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Scope+One" rel="stylesheet">
 
@@ -38,14 +38,20 @@
 
 	<div class="container">
 		<div class="header clearfix">
-			<a class="btn btn-xs">VNLL</a>
-			<h1 id="logo" class="text-center">Pracabar</h1>
+			<a class="btn btn-xs" id="vnll">VNLL</a>
+			
+			<div class="clearfix"></div>
+
+			<h1 id="logo" class="text-center">
+				Pracabar
+				<small>quanto tempo você leva para ler um livro?</small>
+			</h1>
 			<p>
-				Bem-vindo(a) ao Pracabar. O Pracabar é um serviço online gratuito que prevê quanto tempo você levará para ler um livro, com base na velocidade de sua leitura e disponibilidade diária de leitura.
+				Bem-vindo(a) ao Pracabar, um serviço online gratuito que prevê quanto tempo você levará para ler um livro, com base na velocidade de sua leitura e disponibilidade diária de leitura.
 			</p>
 			<p>
 				Leia o trecho abaixo para saber qual sua velocidade de leitura. 
-				Clique em iniciar para começar a leitura e, após finalizar, clique em Parar.
+				Clique em iniciar para começar e, após finalizar, clique em Parar.
 			</p>
 		</div>
 
@@ -147,7 +153,43 @@
 	  </div>
 
 	  <footer class="footer">
-		<p>&copy; 2016 Vanilla, Inc.</p>
+		<p>&copy; 2016 Vanilla, Inc. <a href="javascript:void(0);" data-toggle="modal" data-target="#terms">Termos de Uso</a> | <a href="javascript:void(0);" data-toggle="modal" data-target="#privacy">Política de Privacidade</a></p>
+		
+
+
+		<div class="modal fade" id="terms" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Termos de Uso</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>A Isa está trabalhando nisso</p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<div class="modal fade" id="privacy" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Política de Privacidade</h4>
+			  </div>
+			  <div class="modal-body">
+				<p>A Isa está trabalhando nisso</p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	  </footer>
 
 	</div> <!-- /container -->

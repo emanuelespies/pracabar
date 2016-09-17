@@ -1,6 +1,15 @@
 body {
-	background: #fefefe;
+	background: #f3f3f3;
 	font: 400 16px 'Scope One', serif;
+}
+
+#vnll {
+	background: #444;
+	color: white;
+	font-weight: bolder;
+	font-size: 14px;
+	float: right;
+	padding: 2px 9px;
 }
 
 .text-hidden {
@@ -12,6 +21,20 @@ body {
 /* header */
 #logo {
 	font: bold 5em 'Libre Baskerville', serif;
+	margin-bottom: 30px;
+}
+#logo small {
+	display: block;
+	font-size: 0.22em;
+	margin-top: -15px;
+}
+.header p {
+	display: inline-block;
+	font-size: 1.5em;
+	margin: 15px;
+	text-align: justify;
+	vertical-align: top;
+	width: 47%;
 }
 
 /* leitura */
@@ -25,14 +48,20 @@ body {
 	float: right;
 	margin-left: 5px;
 }
+	.dropdown .dropdown-menu span {
+		border: 2px solid #444;
+		border-radius: 5px;
+		font-size: 10px;
+		padding: 3px;
+	}
 
 	.dropdown .dropdown-menu>li:not(.divider) {
 		font-weight: bold;
-		padding: 3px 20px;
+		padding: 3px 7px;
 	}
 
 	.dropdown .dropdown-menu>li>a {
-		padding: 3px 10px;
+		padding: 3px 25px;
 	}
 
 .play {
@@ -43,3 +72,29 @@ body {
 .form-group {
 
 }
+
+.footer {
+	margin: 50px 0 0;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+	#logo {
+		font-size: 3em;
+	}
+		#logo small {
+		margin-top: -10px;
+	}
+
+	.header p {
+		display: block;
+		width: auto;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media screen and (max-width: 992px) {  }
+
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (max-width: 1200px) {  }
