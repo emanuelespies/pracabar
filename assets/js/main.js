@@ -18,38 +18,40 @@ $('#start').one('click', function() {
 $('#stop').one('click', function() {
 	console.log('stop');
 	endTime = new Date().getTime();
-	media = (endTime - startTime) / 1000;
+	average = (endTime - startTime) / 1000;
 	console.log("duration [ms] = " + (endTime - startTime));
 	//After user hit the stop button we no longer need to show the text area
 	//This way we have a cleaner page
 	$('.jumbotron').slideUp('slow');
+	$('<div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-time"></span> Sua velocidade média de leitura foi calculada.</div>').insertAfter($('.jumbotron'));
 });
 
 $('#btn-calc').on('click', function(event) {
 	event.stopPropagation();
 	
 	// ajustar erros do 0;
-	var mediaMins = Math.round(media / 60);
-	mediaMins = mediaMins === 0 ? 1 : mediaMins;
+	var averageMins = Math.round(average / 60);
+	averageMins = averageMins === 0 ? 1 : averageMins;
 	
-	var pag = $('#paginas').val();
-	var tempo = $('#tempo').val();
-	var $mensagem = $("#mensagem");
+	var page = $('#inputPage').val(),
+		time = $('#inputTime').val(),
+		name = $('#inputName').val(),
+		$message = $("#message");
 
-	if (pag === "" || tempo === "") {
-		$mensagem.html("Você precisa inserir os dados acima");
+	if (page === "" || time === "" || name === "") {
+		$message.html("Você precisa inserir os dados acima");
 		return false;
 	} else {
-		var minTotal = pag * mediaMins;
-		var dias = Math.round(minTotal / tempo);
-		var data = new Date();
+		var minTotal = page * averageMins,
+			days = Math.round(minTotal / time),
+			date = new Date();
 
-		data.setDate(data.getDate() + dias);
-		var dia = data.getDate()
-		var month = data.getMonth() + 1;
-		var ano = data.getFullYear();
+		date.setDate(date.getDate() + days);
+		var day = date.getDate(),
+			month = date.getMonth() + 1,
+			year = date.getFullYear();
 
-		$mensagem.html('Você tem média de ' + mediaMins + ' páginas por minuto e a estimativa é que faltam ' + dias + ' dias pracabar. Isso será no dia ' + dia  + "/" + month + "/" + ano + ". Boa Leitura!");
+		$message.html('Você em média ' + averageMins + ' páginas por minuto e a estimativa é que faltam ' + days + ' dias pracabar. Isso será no dia ' + day  + "/" + month + "/" + year + ". Boa Leitura!");
 		return false;
 	}
 });

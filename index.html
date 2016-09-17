@@ -58,21 +58,21 @@
 						<span class="glyphicon glyphicon-cog"></span>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownOptions">
-						<li>Tamanho da Fonte<br />
-							<a href="#">Aumentar</a>
-							<a href="#">Diminuir</a>
+						<li><span class="glyphicon glyphicon-text-size"></span> Tamanho da Fonte<br /> 
+							<a>Aumentar</a>
+							<a>Diminuir</a>
+						</li>
+						<li role="separator" class="divider"></li> 
+						<li><span class="glyphicon glyphicon-font"></span> Trocar Fonte <br /> 
+							<a>Arial</a>
+							<a>Times New Roman</a>
+							<a>Calibri</a>
 						</li>
 						<li role="separator" class="divider"></li>
-						<li>Trocar Fonte <br />
-							<a href="#">Arial</a>
-							<a href="#">Times New Roman</a>
-							<a href="#">Calibri</a>
-						</li>
-						<li role="separator" class="divider"></li>
-						<li>Espaçamento
-							<a href="#">Pequeno</a>
-							<a href="#">Médio</a>
-							<a href="#">Grande</a>
+						<li><span class="glyphicon glyphicon-indent-left"></span> Espaçamento <br />
+							<a>Pequeno</a>
+							<a>Médio</a>
+							<a>Grande</a>
 						</li>
 					</ul>
 				</div>
@@ -116,10 +116,14 @@
 			<div class="clearfix"></div>
 		</div>
 
-	  <div class="row marketing">
+	  <div class="row about-book">
 		<div class="col-lg-6">
 			<div id="calc">
 				<h3>Sobre seu livro</h3>
+				<div class="form-group">
+					<label for="inputName">Nome do Livro</label>
+					<input type="text" class="form-control" id="inputName" placeholder="Nome do Livro">
+				</div>
 				<div class="form-group">
 					<label for="inputPage">Páginas</label>
 					<input type="text" class="form-control" id="inputPage" placeholder="Páginas">
@@ -132,7 +136,7 @@
 					Calcular
 				</button>
 			</div>
-			<div id="mensagem"></div>
+			<div id="message"></div>
 		</div>
 	  </div>
 

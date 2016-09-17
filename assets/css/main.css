@@ -25,6 +25,16 @@ body {
 	float: right;
 	margin-left: 5px;
 }
+
+	.dropdown .dropdown-menu>li:not(.divider) {
+		font-weight: bold;
+		padding: 3px 20px;
+	}
+
+	.dropdown .dropdown-menu>li>a {
+		padding: 3px 10px;
+	}
+
 .play {
 	float: right;
 }
