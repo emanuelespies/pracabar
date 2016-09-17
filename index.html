@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="assets/img/favicon.ico">
+
+	<title>Pracabar</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Scope+One" rel="stylesheet">
+
+	<!-- Bootstrap core CSS -->
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="assets/css/main.css" rel="stylesheet">
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+
+	<div class="container">
+		<div class="header clearfix">
+			<a class="btn btn-xs">VNLL</a>
+			<h1 id="logo" class="text-center">Pracabar</h1>
+			<p>{texto explicativo}</p>
+		</div>
+
+		<div class="jumbotron">
+			<div id="select-text">
+			<label for="selectText">
+				<span class="text-hidden">Selecione o idioma do texto</span>
+				<select class="form-control" name="selectText">
+					<option value="pt-br">Português</option>
+					<option value="en-us">English</option>
+				</select>
+			</div>
+			<div class="actions">
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<span class="glyphicon glyphicon-cog"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownOptions">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+					</ul>
+				</div>
+
+				<div class="play">
+					<a id="start" class="btn btn-primary">
+						<span class="glyphicon glyphicon-play"></span>
+						Iniciar
+					</a>
+				</div>
+				
+			</div>
+			
+			<div class="clearfix"></div>
+			
+			<h2>Teste de Leitura</h2>
+
+			<div id="reading-box">
+				<div class="pt-br">
+					<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+					<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				</div>
+
+				<div class="en-us hidden">
+					<p>English text</p>
+
+				</div>
+			</div>
+
+			<div class="play">
+				<a id="stop" class="btn btn-success">
+					<span class="glyphicon glyphicon-stop"></span>
+					Parar
+				</a>
+			</div>
+
+			<div class="clearfix"></div>
+		</div>
+
+	  <div class="row marketing">
+		<div class="col-lg-6">
+			<div id="calc">
+				<h3>Sobre seu livro</h3>
+				<div class="form-group">
+					<label for="inputPage">Páginas</label>
+					<input type="text" class="form-control" id="inputPage" placeholder="Páginas">
+				</div>
+				<div class="form-group">
+					<label for="inputTime">Tempo Disponível</label>
+					<input type="text" class="form-control" id="inputTime" placeholder="Tempo disponível por dia em minutos">
+				</div>
+				<button id="btn-calc" class="btn btn-primary">
+					Calcular
+				</button>
+			</div>
+			<div id="mensagem"></div>
+		</div>
+	  </div>
+
+	  <footer class="footer">
+		<p>&copy; 2016 Vanilla, Inc.</p>
+	  </footer>
+
+	</div> <!-- /container -->
+
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"></script>
+  </body>
+</html>

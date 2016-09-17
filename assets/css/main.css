@@ -1,0 +1,35 @@
+body {
+	background: #fefefe;
+	font: 400 16px 'Scope One', serif;
+}
+
+.text-hidden {
+	display: block;
+	height: 0;
+	text-indent: -99999em;
+}
+
+/* header */
+#logo {
+	font: bold 5em 'Libre Baskerville', serif;
+}
+
+/* leitura */
+#select-text { 
+	float: left;
+}
+.actions {
+	float: right;
+}
+.dropdown {
+	float: right;
+	margin-left: 5px;
+}
+.play {
+	float: right;
+}
+
+/* sobre seu livro*/
+.form-group {
+
+}
