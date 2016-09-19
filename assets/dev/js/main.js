@@ -21,18 +21,20 @@ var vnllPracabar = {
 	calcAverage: function() {'use strict';
 
 		$('#start').one('click', function() {
-			alert('a');
+			window.console.warn('start');
+			
 			$(this).addClass('disabled');
-			console.warn('start');
 			vnllPracabar.startTime = new Date().getTime();
 
 		});
 
 		$('#stop').one('click', function() {
-			console.warn('stop');
 			vnllPracabar.endTime = new Date().getTime();
 			vnllPracabar.average = (vnllPracabar.endTime - vnllPracabar.startTime) / 1000;
-			console.warn("duration [ms] = " + (vnllPracabar.endTime - vnllPracabar.startTime));
+			
+			window.console.warn('stop');
+			window.console.warn("duration [ms] = " + (vnllPracabar.endTime - vnllPracabar.startTime));
+			
 			//After user hit the stop button we no longer need to show the text area
 			//This way we have a cleaner page
 			$('.jumbotron').slideUp('slow');
@@ -43,18 +45,20 @@ var vnllPracabar = {
 	btnCalc: function() { 'use strict';
 		$('#btn-calc').on('click', function(event) {
 			event.stopPropagation();
-			var $t = $(this);
+			
+			var $t 			= $(this),
+				averageMins = Math.round(vnllPracabar.average / 60),
+				page 		= $('#inputPage').val(),
+				time 		= $('#inputTime').val(),
+				name 		= $('#inputName').val(),
+				$message 	= $("#message");
+			
 			$t.addClass('disabled');
 			$('.loading').removeClass('hidden');
 			
 			// ajustar erros do 0;
-			var averageMins = Math.round(vnllPracabar.average / 60);
 			averageMins = averageMins === 0 ? 1 : averageMins;
 			
-			var page = $('#inputPage').val(),
-				time = $('#inputTime').val(),
-				name = $('#inputName').val(),
-				$message = $("#message");
 
 			setTimeout(function(){
 				if (page === "" || time === "" || name === "") {

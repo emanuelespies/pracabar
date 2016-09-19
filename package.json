@@ -1,0 +1,30 @@
+{
+  "name": "mocaccino",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "matchdep": "^1.0.1"
+  },
+  "description": "Mocaccino",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/vnll/mocaccino.git"
+  },
+  "keywords": "",
+  "author": "Vanilla Inc.",
+  "license": "ISC",
+  "bugs": {
+    "url": "#"
+  },
+  "homepage": "#"
+}
