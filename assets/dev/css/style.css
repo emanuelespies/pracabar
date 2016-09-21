@@ -47,10 +47,10 @@ body {
 .header p {
   display: inline-block;
   font-size: 1.5em;
-  margin: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: justify;
-  vertical-align: top;
-  width: 47%; }
+  vertical-align: top; }
 
 /* leitura */
 #select-text {
