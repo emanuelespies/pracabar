@@ -8,6 +8,12 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<meta name="description" content="Pracabar é um serviço online gratuito que prevê quanto tempo você levará para ler um livro, com base na velocidade de sua leitura e disponibilidade diária de leitura.">
 	<meta name="author" content="Vanilla Inc.">
+
+	<!-- Facebook --> 
+	<meta property="og:title" content="Pracabar {livro}" /> 
+	<meta property="og:description" content="Estou lendo ${livro} e faltam ${dias} dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.com" />
+	<meta property="og:image" content="http://{pracabarIMG}" />
+
 	<link rel="icon" href="assets/dist/img/favicon.ico">
 
 	<title>Pracabar - quanto tempo você leva para ler um livro</title>
@@ -122,6 +128,7 @@
 		<div class="col-lg-12">
 			<div id="calc" class="col-lg-6">
 				<h3>Sobre seu livro</h3>
+				<p>Agora, preencha abaixo para saber quanto tempo você levará para ler o livro:
 				<div class="form-group">
 					<label for="inputName">Nome do Livro</label>
 					<input type="text" class="form-control" id="inputName" placeholder="Nome do Livro">
@@ -141,6 +148,8 @@
 			</div>
 			<div class="message-content col-lg-6">
 				<div id="message"> </div>
+				<!-- Go to www.addthis.com/dashboard to customize your tools -->
+				<div class="addthis_inline_share_toolbox hidden"></div>
 			</div>
 		</div>
 	  </div>
@@ -190,5 +199,7 @@
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="assets/dist/js/built.min.js"></script>
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57e7f0b96bcee360"></script>
   </body>
 </html>

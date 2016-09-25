@@ -186,6 +186,7 @@ var vnllPracabar = {
 						year = date.getFullYear();
 
 					$('.loading').addClass('hidden');
+					$('.addthis_inline_share_toolbox').removeClass('hidden');
 					$message.html('Você lê em média ' + averageMins + ' páginas por minuto e a estimativa é que faltam ' + days + ' dias pracabar a leitura de ' + name + '. Isso será no dia ' + day  + "/" + month + "/" + year + ". Boa Leitura!").addClass('alert alert-success').removeClass('alert-danger');
 					return false;
 				}
