@@ -1,104 +1,106 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 - Imports
-2.0 - Fonts and colors
+1.0 - Fonts and colors
+2.0 - Basic
+3.0 - Media Query
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1.0 - Imports
---------------------------------------------------------------*/
-/*@import "font-awesome";*/
-
-/*--------------------------------------------------------------
-2.0 - Fonts and Colors
+1.0 - Fonts and Colors
 --------------------------------------------------------------*/
 $primary-color: #444;
-$secondary-color: #f3f3f3;
 
 /*--------------------------------------------------------------
-3.0 - Basic
+2.0 - Basic
 --------------------------------------------------------------*/
 body {
-  background: #f3f3f3;
-  font: 400 16px 'Scope One', serif;
+	background: #f3f3f3;
+	font: 400 16px 'Scope One', serif;
 }
 
 #vnll {
-  background: $primary-color;
-  border-radius: 4px 0 0 4px;
-  color: white;
-  font-weight: bolder;
-  font-size: 14px;
-  float: right;
-  padding: 2px 9px;
-  position: absolute;
-  right: 0;
+	background: $primary-color;
+	border-radius: 4px 0 0 4px;
+	color: white;
+	font-weight: bolder;
+	font-size: 14px;
+	float: right;
+	padding: 2px 9px;
+	position: absolute;
+	right: 0;
 }
 
 .text-hidden {
-  display: block;
-  height: 0;
-  text-indent: -99999em;
+	display: block;
+	height: 0;
+	text-indent: -99999em;
 }
 
 /* header */
 #logo {
-  font: bold 5em 'Libre Baskerville', serif;
-  margin-bottom: 30px;
-}
-#logo small {
-  display: block;
-  font-size: 0.22em;
-  margin-top: -15px;
+	font: bold 5em 'Libre Baskerville', serif;
+	margin-bottom: 30px;
+	
+	small {
+		display: block;
+		font-size: 0.22em;
+		margin-top: -15px;
+	}
 }
 .header p {
-  display: inline-block;
-  font-size: 1.5em;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: justify;
-  vertical-align: top;
+	display: inline-block;
+	font-size: 1.5em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: justify;
+	vertical-align: top;
 }
 
 /* leitura */
 #select-text { 
-  float: left;
+	float: left;
 }
 .actions {
-  float: right;
+	float: right;
 }
 .dropdown {
-  float: right;
-  margin-left: 5px;
+	float: right;
+	margin-left: 5px;
+
+	.dropdown-menu  {
+		left: initial;
+		right: 0;
+	
+		span {
+			background: $primary-color;
+			border-radius: 5px;
+			color: white;
+			font-size: 10px;
+			padding: 4px;
+		}
+
+		>li:not(.divider) {
+			font-weight: bold;
+			padding: 3px 7px;
+		}
+
+		> li > a {
+			cursor: pointer;
+			padding: 3px 25px;
+		}
+		> li > a.selected {
+			text-decoration: underline;
+		}
+	}
 }
-  .dropdown .dropdown-menu  {
-    left: initial;
-    right: 0;
-  }
-  .dropdown .dropdown-menu span {
-    background: $primary-color;
-    border-radius: 5px;
-    color: white;
-    font-size: 10px;
-    padding: 4px;
-  }
-
-  .dropdown .dropdown-menu>li:not(.divider) {
-    font-weight: bold;
-    padding: 3px 7px;
-  }
-
-  .dropdown .dropdown-menu>li>a {
-    padding: 3px 25px;
-  }
 
 .play {
-  float: right;
+	float: right;
 }
 
 .alert-average {
-  margin: 0 15px;
+	margin: 0 15px;
 }
 
 /* sobre seu livro*/
@@ -107,30 +109,35 @@ body {
 }
 
 .message-content {
-  margin-top: 50px;
+	margin-top: 50px;
 }
 
 .footer {
-  border-top: 1px solid #ddd;
-  margin: 50px 0 0;
-  padding: 30px 15px;
+	border-top: 1px solid #ddd;
+	margin: 50px 0 0;
+	padding: 30px 15px;
 }
 
 
+
+/*--------------------------------------------------------------
+3.0 - Basic
+--------------------------------------------------------------*/
+
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
-  #logo {
-    font-size: 3em;
-  }
-    #logo small {
-    margin-top: -10px;
-  }
+	#logo {
+		font-size: 3em;
+	}
+		#logo small {
+		margin-top: -10px;
+	}
 
-  .header p {
-    display: block;
-    font-size: 1.2em;
-    width: auto;
-  }
+	.header p {
+		display: block;
+		font-size: 1.2em;
+		width: auto;
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */

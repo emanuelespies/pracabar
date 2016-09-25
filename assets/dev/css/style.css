@@ -1,18 +1,15 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 - Imports
-2.0 - Fonts and colors
+1.0 - Fonts and colors
+2.0 - Basic
+3.0 - Media Query
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-1.0 - Imports
---------------------------------------------------------------*/
-/*@import "font-awesome";*/
-/*--------------------------------------------------------------
-2.0 - Fonts and Colors
+1.0 - Fonts and Colors
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-3.0 - Basic
+2.0 - Basic
 --------------------------------------------------------------*/
 body {
   background: #f3f3f3;
@@ -38,7 +35,6 @@ body {
 #logo {
   font: bold 5em 'Libre Baskerville', serif;
   margin-bottom: 30px; }
-
 #logo small {
   display: block;
   font-size: 0.22em;
@@ -62,24 +58,23 @@ body {
 .dropdown {
   float: right;
   margin-left: 5px; }
-
 .dropdown .dropdown-menu {
   left: initial;
   right: 0; }
-
 .dropdown .dropdown-menu span {
   background: #444;
   border-radius: 5px;
   color: white;
   font-size: 10px;
   padding: 4px; }
-
 .dropdown .dropdown-menu > li:not(.divider) {
   font-weight: bold;
   padding: 3px 7px; }
-
 .dropdown .dropdown-menu > li > a {
+  cursor: pointer;
   padding: 3px 25px; }
+.dropdown .dropdown-menu > li > a.selected {
+  text-decoration: underline; }
 
 .play {
   float: right; }
@@ -96,6 +91,9 @@ body {
   margin: 50px 0 0;
   padding: 30px 15px; }
 
+/*--------------------------------------------------------------
+3.0 - Basic
+--------------------------------------------------------------*/
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
   #logo {

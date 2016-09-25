@@ -6,6 +6,80 @@ var vnllPracabar = {
 	endTime: null,
 	average: null,
 
+
+	textOptions: function() {'use strict';
+		var $actions 	= $('.actions'),
+			$text 		= $('#reading-box');
+
+		// we need to control de open/close of dropdown
+		$actions.find('#dropdownOptions').click(function() {
+			$(this).parent().toggleClass('open');
+		});
+
+		$('body').on('click', function (e) {
+			var $dropdown = $('.dropdown');
+
+			if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0 && $('.open').has(e.target).length === 0) {
+				$dropdown.removeClass('open');
+			}
+		});
+
+		$actions.find('.font-size a').click(function() {
+			var $t 			= $(this),
+				$content 	= $text.find('p'),
+				curSize 	= parseInt($content.css('font-size'));
+
+			if ( $t.index() === 2 ) {
+				curSize = curSize + 2;
+
+				if (curSize <= 26) {
+					$content.css('font-size', curSize);
+				}                
+			} else {
+				curSize = curSize - 2;
+
+				if (curSize >= 10)  {       
+					$content.css('font-size', curSize);        
+				}
+			}
+
+			
+		});   
+		
+		$actions.find('.font-change a').click(function() {           
+			var $t 			= $(this),
+				curFont 	= $t.text();
+
+			$actions.find('.font-change a').removeClass('selected');
+			$t.addClass('selected');
+
+			$text.css('font-family', curFont);               
+		});  
+
+		$actions.find('.margin-size a').click(function() {
+			var $t 			= $(this),
+				curMargin 	= $t.text();
+
+			$actions.find('.margin-size a').removeClass('selected');
+			$t.addClass('selected');
+
+			switch(curMargin) {
+				case 'Estreito':
+				$text.css('padding', '5px');
+			  break;
+			 
+			case 'Normal':
+				$text.css('padding', '15px');
+			  break;
+			  
+			case 'Largo':
+				$text.css('padding', '25px');
+			  break;
+			}
+		}); 
+
+	},
+
 	selectText: function() {'use strict';
 
 		$('#select-text').change(function() {
@@ -87,6 +161,9 @@ var vnllPracabar = {
 	init: function() {
 		"use strict";
 		
+		// options
+		vnllPracabar.textOptions();
+
 		// select text according with language
 		vnllPracabar.selectText();
 		
