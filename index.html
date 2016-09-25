@@ -11,7 +11,7 @@
 
 	<!-- Facebook --> 
 	<meta property="og:title" content="Pracabar {livro}" /> 
-	<meta property="og:description" content="Estou lendo ${livro} e faltam ${dias} dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.com" />
+	<meta property="og:description" content="Estou lendo {livro} e faltam {dias} dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.com" />
 	<meta property="og:image" content="http://{pracabarIMG}" />
 
 	<link rel="icon" href="assets/dist/img/favicon.ico">
@@ -52,15 +52,18 @@
 		</div>
 
 		<div class="jumbotron">
+			<h2>Teste de Leitura</h2>
+			
 			<div id="select-text">
-			<label for="selectText">
 				<span class="text-hidden">Selecione o idioma do texto</span>
 				<select class="form-control" name="selectText">
 					<option value="pt-br">Português</option>
 					<option value="en-us">English</option>
 				</select>
 			</div>
+			
 			<div class="actions">
+				
 				<div class="dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownOptions" aria-haspopup="true" aria-expanded="true">
 						<span class="glyphicon glyphicon-cog"></span>
@@ -90,13 +93,20 @@
 						<span class="glyphicon glyphicon-play"></span>
 						Iniciar
 					</a>
+				</div>	
+			</div>
+			
+			<div class="known-average form-inline">
+				<div class="form-group">
+					<label for="inputAverage">Ou, insira sua média manualmente</label>
+					<input type="text" class="form-control" id="inputAverage" placeholder="Média de páginas por minuto">
 				</div>
-				
+				<button type="submit" class="btn btn-primary">OK</button>
 			</div>
 			
 			<div class="clearfix"></div>
 			
-			<h2>Teste de Leitura</h2>
+			
 
 			<div id="reading-box">
 				<div class="pt-br">
@@ -140,7 +150,7 @@
 				</div>
 			</div>
 
-			<div class="play">
+			<div class="stop">
 				<a id="stop" class="btn btn-success">
 					<span class="glyphicon glyphicon-stop"></span>
 					Parar

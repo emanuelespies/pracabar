@@ -132,6 +132,7 @@ var vnllPracabar = {
 		$('#start').one('click', function() {
 			window.console.warn('start');
 			
+			$("#reading-box").css('opacity', 1);
 			$(this).addClass('disabled');
 			vnllPracabar.startTime = new Date().getTime();
 
@@ -184,14 +185,43 @@ var vnllPracabar = {
 					var day = date.getDate(),
 						month = date.getMonth() + 1,
 						year = date.getFullYear();
+					
+					vnllPracabar.share(name, days);
 
 					$('.loading').addClass('hidden');
 					$('.addthis_inline_share_toolbox').removeClass('hidden');
 					$message.html('Você lê em média ' + averageMins + ' páginas por minuto e a estimativa é que faltam ' + days + ' dias pracabar a leitura de ' + name + '. Isso será no dia ' + day  + "/" + month + "/" + year + ". Boa Leitura!").addClass('alert alert-success').removeClass('alert-danger');
+
+
 					return false;
 				}
 			}, 200);
 		});
+	},
+
+	share: function(name, days) {
+		"use strict";
+		var addthis_share 		= addthis_share || {},
+			propertyTitle 		= $('meta[property="og:title"]'),
+			propertyDescription = $('meta[property="og:description"]');
+
+
+		propertyTitle.attr('content', 'Pracabar ' + name);
+
+		var content = propertyDescription.attr('content'),
+			newContent = content.replace("{livro}", name);
+			newContent = newContent.replace("{dias}", days);
+
+		propertyDescription.attr('content', newContent);
+
+
+		addthis_share = {
+			url: "http://pracabar.com",
+			title: "Pracabar - quanto tempo você leva para ler um livro",
+			description: "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.com",
+			email_template: "Pracabar",
+			email_vars: { name: name, days: days }
+		};
 	},
 
 	init: function() {

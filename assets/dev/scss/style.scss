@@ -62,16 +62,18 @@ body {
 	float: left;
 }
 .actions {
-	float: right;
+	float: left;
+	margin-left: 10px;
 }
-.dropdown {
-	float: right;
+.play {
+	display: inline-block;
 	margin-left: 5px;
+}
+
+.dropdown {
+	display: inline-block;
 
 	.dropdown-menu  {
-		left: initial;
-		right: 0;
-	
 		span {
 			background: $primary-color;
 			border-radius: 5px;
@@ -95,9 +97,19 @@ body {
 	}
 }
 
-.play {
+.stop {
 	float: right;
 }
+
+.known-average {
+	float: right;
+}
+
+#reading-box {
+	opacity: 0.2;
+	margin-top: 30px;
+}
+
 
 .alert-average {
 	margin: 0 15px;
