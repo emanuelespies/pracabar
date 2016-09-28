@@ -5,6 +5,7 @@ var vnllPracabar = {
 	startTime: null,
 	endTime: null,
 	average: null,
+	averageBt: null,
 
 
 	textOptions: function() {'use strict';
@@ -110,11 +111,27 @@ var vnllPracabar = {
 			window.console.warn('stop');
 			window.console.warn("duration [ms] = " + (vnllPracabar.endTime - vnllPracabar.startTime));
 			
+			closeText(true);
+		});
+
+		// or if users already knows his average
+		$('.known-average').find('button').click( function() {
+			vnllPracabar.averageBt = $('#inputAverage').val().match(/\d+/g);
+			
+			closeText();
+
+			console.warn(vnllPracabar.averageBt);
+		});
+
+		var closeText = function(bool) {
 			//After user hit the stop button we no longer need to show the text area
 			//This way we have a cleaner page
 			$('.jumbotron').slideUp('slow');
-			$('<div class="alert alert-success alert-average" role="alert"><span class="glyphicon glyphicon-time"></span> Sua velocidade média de leitura foi calculada.</div>').insertAfter($('.jumbotron'));
-		});
+
+			var word = (bool === true) ? "calculada" : "salva"; 
+			
+			$('<div class="alert alert-success alert-average" role="alert"><span class="glyphicon glyphicon-time"></span> Sua velocidade média de leitura foi '+word+'.</div>').insertAfter($('.jumbotron'));
+		};
 	},
 
 	btnCalc: function() { 'use strict';
@@ -122,17 +139,15 @@ var vnllPracabar = {
 			event.stopPropagation();
 			
 			var $t 			= $(this),
-				averageMins = Math.round(vnllPracabar.average / 60),
 				page 		= $('#inputPage').val(),
 				time 		= $('#inputTime').val(),
 				name 		= $('#inputName').val(),
-				$message 	= $("#message");
+				$message 	= $("#message"),
+				averageMins = null,
+				minTotal 	= null;
 			
 			$t.addClass('disabled');
 			$('.loading').removeClass('hidden');
-			
-			// ajustar erros do 0;
-			averageMins = averageMins === 0 ? 1 : averageMins;
 			
 
 			setTimeout(function(){
@@ -142,11 +157,22 @@ var vnllPracabar = {
 					$message.html("Você precisa inserir os dados acima").addClass('alert alert-danger');
 					return false;
 				} else {
-					var minTotal = page * averageMins,
-						days = Math.round(minTotal / time),
-						date = new Date();
+					if ( vnllPracabar.average !== null) {
+						averageMins = Math.round(vnllPracabar.average / 60);
+						// ajustar erros do 0;
+						averageMins = averageMins === 0 ? 1 : averageMins;
+						
+						minTotal = page * averageMins;
 
-					date.setDate(date.getDate() + days);
+					} else {
+						averageMins = vnllPracabar.averageBt;
+						minTotal = page / averageMins;
+					}
+
+					var days = Math.round(minTotal / time),
+						date = new Date();
+						date.setDate(date.getDate() + days);
+
 					var day = date.getDate(),
 						month = date.getMonth() + 1,
 						year = date.getFullYear();
