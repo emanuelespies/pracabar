@@ -148,7 +148,7 @@ var vnllPracabar = {
 			
 			$t.addClass('disabled');
 			$('.loading').removeClass('hidden');
-			
+		
 
 			setTimeout(function(){
 				if (page === "" || time === "" || name === "") {
@@ -158,8 +158,8 @@ var vnllPracabar = {
 					return false;
 				} else {
 					if ( vnllPracabar.average !== null) {
-						averageMins = Math.round(vnllPracabar.average / 60);
-						// ajustar erros do 0;
+						averageMins = Math.round(vnllPracabar.average / 60 / 6); // since we have 1200 caract. and a normal page have 200.
+						// if the user read it too fast;
 						averageMins = averageMins === 0 ? 1 : averageMins;
 						
 						minTotal = page * averageMins;
