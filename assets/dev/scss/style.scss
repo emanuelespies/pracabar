@@ -19,6 +19,22 @@ body {
 	font: 400 16px 'Scope One', serif;
 }
 
+.modal-legal {
+	.modal-body {
+		font-size: 0.8em;
+		max-height: 400px;
+		overflow: scroll;
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin-bottom: 10px;
+	}
+}
+
 #vnll {
 	background: $primary-color;
 	border-radius: 4px 0 0 4px;
@@ -102,7 +118,18 @@ body {
 }
 
 .known-average {
-	float: right;
+
+	.form-group {
+		display: inline-block;
+	}
+
+	&:before {
+		clear: both;
+		content: "";
+		display: block;
+		height: 15px;
+		overflow: hidden;
+	}
 }
 
 #reading-box {
@@ -133,7 +160,7 @@ body {
 
 
 /*--------------------------------------------------------------
-3.0 - Basic
+3.0 - Media Query
 --------------------------------------------------------------*/
 
 /* Small devices (tablets, 768px and up) */
@@ -153,8 +180,18 @@ body {
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media screen and (max-width: 992px) {  }
+@media screen and (min-width: 992px) {  
+	.known-average {
+		float: right;
+
+		&:before {
+			display: none;
+		}
+	}
+}
 
 /* Large devices (large desktops, 1200px and up) */
-@media screen and (max-width: 1200px) {  }
+@media screen and (min-width: 1200px) { 
+	
+}
 

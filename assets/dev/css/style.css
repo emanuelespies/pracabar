@@ -15,6 +15,15 @@ body {
   background: #f3f3f3;
   font: 400 16px 'Scope One', serif; }
 
+.modal-legal .modal-body {
+  font-size: 0.8em;
+  max-height: 400px;
+  overflow: scroll; }
+.modal-legal dt {
+  font-weight: bold; }
+.modal-legal dd {
+  margin-bottom: 10px; }
+
 #vnll {
   background: #444;
   border-radius: 4px 0 0 4px;
@@ -80,8 +89,14 @@ body {
 .stop {
   float: right; }
 
-.known-average {
-  float: right; }
+.known-average .form-group {
+  display: inline-block; }
+.known-average:before {
+  clear: both;
+  content: "";
+  display: block;
+  height: 15px;
+  overflow: hidden; }
 
 #reading-box {
   opacity: 0.2;
@@ -100,7 +115,7 @@ body {
   padding: 30px 15px; }
 
 /*--------------------------------------------------------------
-3.0 - Basic
+3.0 - Media Query
 --------------------------------------------------------------*/
 /* Small devices (tablets, 768px and up) */
 @media screen and (max-width: 768px) {
@@ -115,6 +130,11 @@ body {
     font-size: 1.2em;
     width: auto; } }
 /* Medium devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+  .known-average {
+    float: right; }
+  .known-average:before {
+    display: none; } }
 /* Large devices (large desktops, 1200px and up) */
 
 /*# sourceMappingURL=style.css.map */

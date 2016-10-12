@@ -34,7 +34,7 @@ this.activeTarget=b,this.clear();var c=this.selector+'[data-target="'+b+'"],'+th
 })();
 
 /* jshint undef: true, unused: true */
-/* globals $ */
+/* globals $, addthis */
 var vnllPracabar = {
 
 	startTime: null,
@@ -227,27 +227,21 @@ var vnllPracabar = {
 
 	share: function(name, days) {
 		"use strict";
-		var addthis_share 		= addthis_share || {},
-			propertyTitle 		= $('meta[property="og:title"]'),
-			propertyDescription = $('meta[property="og:description"]');
-
-
-		propertyTitle.attr('content', 'Pracabar ' + name);
-
-		var content = propertyDescription.attr('content'),
-			newContent = content.replace("{livro}", name);
-			newContent = newContent.replace("{dias}", days);
-
-		propertyDescription.attr('content', newContent);
-
 
 		addthis_share = {
-			url: "http://pracabar.com",
-			title: "Pracabar - quanto tempo você leva para ler um livro",
-			description: "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.com",
 			email_template: "Pracabar",
-			email_vars: { book: name, days: days }
+			email_vars: { book: name, days: days },
+
+			passthrough : {
+				twitter: {
+					text: "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em "
+				}
+			}
 		};
+
+		addthis.update('share', 'url', "http://pracabar.co");
+		addthis.update('share', 'title', "Pracabar - quanto tempo você leva para ler um livro");
+		addthis.update('share', 'description', "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.co");
 	},
 
 	init: function() {
