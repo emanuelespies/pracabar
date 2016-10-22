@@ -135,8 +135,9 @@ var vnllPracabar = {
 	},
 
 	btnCalc: function() { 'use strict';
-		$('#btn-calc').on('click', function(event) {
+		$('#btn-calc:not(".disabled")').on('click', function(event) {
 			event.stopPropagation();
+			event.preventDefault();
 			
 			var $t 			= $(this),
 				page 		= $('#inputPage').val(),
@@ -154,7 +155,6 @@ var vnllPracabar = {
 				if (page === "" || time === "" || name === "") {
 					$('.loading').addClass('hidden');
 					$t.removeClass('disabled');
-					$message.html("Você precisa inserir os dados acima").addClass('alert alert-danger');
 					return false;
 				} else {
 					if ( vnllPracabar.average !== null) {
@@ -181,8 +181,10 @@ var vnllPracabar = {
 
 					$('.loading').addClass('hidden');
 					$('.addthis_inline_share_toolbox').removeClass('hidden');
-					$message.html('Você lê em média ' + averageMins + ' páginas por minuto e a estimativa é que faltam ' + days + ' dias pracabar a leitura de ' + name + '. Isso será no dia ' + day  + "/" + month + "/" + year + ". Boa Leitura!").addClass('alert alert-success').removeClass('alert-danger');
 
+					var pagina = averageMins == 1 ? 'página' : 'páginas';
+					
+					$message.html('Você lê em média ' + averageMins + ' ' + pagina + ' por minuto e a estimativa é que faltam ' + days + ' dias pracabar a leitura de ' + name + '. Isso será no dia ' + day  + "/" + month + "/" + year + ". Boa Leitura!").addClass('alert alert-success').removeClass('alert-danger');
 
 					return false;
 				}
@@ -192,21 +194,25 @@ var vnllPracabar = {
 
 	share: function(name, days) {
 		"use strict";
+		
+		if ( typeof addthis_share !== 'undefined' && typeof addthis !== 'undefined') {
+			addthis_share = {
+				email_template: "Pracabar",
+				email_vars: { book: name, days: days },
 
-		addthis_share = {
-			email_template: "Pracabar",
-			email_vars: { book: name, days: days },
-
-			passthrough : {
-				twitter: {
-					text: "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em "
+				passthrough : {
+					twitter: {
+						text: "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em "
+					}
 				}
-			}
-		};
+			};
 
-		addthis.update('share', 'url', "http://pracabar.co");
-		addthis.update('share', 'title', "Pracabar - quanto tempo você leva para ler um livro");
-		addthis.update('share', 'description', "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.co");
+			addthis.update('share', 'url', "http://pracabar.co");
+			addthis.update('share', 'title', "Pracabar - quanto tempo você leva para ler um livro");
+			addthis.update('share', 'description', "Estou lendo " +name+ " e faltam " + days + " dias Pracabar. Calcule sua média de leitura e dias pracabar de ler em http://pracabar.co");
+			}
+
+		
 	},
 
 	init: function() {
