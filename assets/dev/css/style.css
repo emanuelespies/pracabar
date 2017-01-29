@@ -24,6 +24,12 @@ body {
 .modal-legal dd {
   margin-bottom: 10px; }
 
+h2, h3 {
+  margin-top: 0; }
+
+hr {
+  border-color: black; }
+
 #vnll {
   background: #444;
   border-radius: 4px 0 0 4px;
@@ -90,23 +96,33 @@ body {
 .stop {
   float: right; }
 
+.known-average {
+  clear: both; }
 .known-average .form-group {
   display: inline-block; }
-.known-average:before {
+.known-average label {
+  display: block; }
+.known-average .form-control {
+  width: 100%; }
+.known-average :before {
   clear: both;
-  content: "";
-  display: block;
-  height: 15px;
-  overflow: hidden; }
+  content: " ";
+  display: inline-block;
+  margin-top: 10px; }
 
 #reading-box {
   opacity: 0.2;
   margin-top: 30px; }
+#reading-box p {
+  font-size: 1em; }
 
 .alert-average {
-  margin: 0 15px; }
+  margin: 0; }
 
 /* sobre seu livro*/
+.about-book {
+  background: none; }
+
 .message-content {
   margin-top: 50px; }
 
@@ -132,10 +148,8 @@ body {
     width: auto; } }
 /* Medium devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
-  .known-average {
-    float: right; }
-  .known-average:before {
-    display: none; } }
+  .known-average button {
+    vertical-align: bottom; } }
 /* Large devices (large desktops, 1200px and up) */
 
 /*# sourceMappingURL=style.css.map */

@@ -35,6 +35,14 @@ body {
 	}
 }
 
+h2, h3 {
+	margin-top: 0;
+}
+
+hr {
+	border-color: black;
+}
+
 #vnll {
 	background: $primary-color;
 	border-radius: 4px 0 0 4px;
@@ -119,31 +127,47 @@ body {
 }
 
 .known-average {
+	
+	clear: both;
 
 	.form-group {
 		display: inline-block;
 	}
 
-	&:before {
-		clear: both;
-		content: "";
+	label {
 		display: block;
-		height: 15px;
-		overflow: hidden;
+	}
+
+	.form-control {
+		width: 100%;
+	}
+
+	:before {
+		clear: both;
+		content: " ";
+		display: inline-block;
+		margin-top: 10px;
 	}
 }
 
 #reading-box {
 	opacity: 0.2;
 	margin-top: 30px;
+
+	p {
+		font-size: 1em;
+	}
 }
 
-
 .alert-average {
-	margin: 0 15px;
+	margin: 0
 }
 
 /* sobre seu livro*/
+.about-book {
+	background: none;
+}
+
 .form-group {
 
 }
@@ -182,11 +206,9 @@ body {
 
 /* Medium devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {  
-	.known-average {
-		float: right;
-
-		&:before {
-			display: none;
+	.known-average {		
+		button {
+			vertical-align: bottom;
 		}
 	}
 }

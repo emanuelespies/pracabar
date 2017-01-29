@@ -131,21 +131,17 @@ var vnllPracabar = {
 	calcAverage: function() {'use strict';
 
 		$('#start').one('click', function() {
-			window.console.warn('start');
-			
 			$("#reading-box").css('opacity', 1);
 			$(this).addClass('disabled');
+			$("#stop").removeClass('disabled');
 			vnllPracabar.startTime = new Date().getTime();
 
 		});
 
 		$('#stop').one('click', function() {
 			vnllPracabar.endTime = new Date().getTime();
-			vnllPracabar.average = (vnllPracabar.endTime - vnllPracabar.startTime) / 1000;
-			
-			window.console.warn('stop');
-			window.console.warn("duration [ms] = " + (vnllPracabar.endTime - vnllPracabar.startTime));
-			
+			vnllPracabar.average = (vnllPracabar.endTime - vnllPracabar.startTime);
+		
 			closeText(true);
 		});
 
@@ -154,19 +150,17 @@ var vnllPracabar = {
 			vnllPracabar.averageBt = $('#inputAverage').val().match(/\d+/g);
 			
 			closeText();
-
-			console.warn(vnllPracabar.averageBt);
 		});
 
 		var closeText = function(bool) {
 			//After user hit the stop button we no longer need to show the text area
 			//This way we have a cleaner page
-			$('.jumbotron').slideUp('slow');
+			$('.jumbotron').first().empty();
 
 			var word = (bool === true) ? "calculada" : "salva"; 
 			
-			$('<div class="alert alert-success alert-average" role="alert"><span class="glyphicon glyphicon-time"></span> Sua velocidade média de leitura foi '+word+'.</div>').insertAfter($('.jumbotron'));
-		};
+			$('<div class="alert alert-success alert-average" role="alert"><span class="glyphicon glyphicon-time"></span> Sua velocidade média de leitura foi '+word+'.</div>').appendTo('.jumbotron:first');
+		}
 	},
 
 	btnCalc: function() { 'use strict';
@@ -174,13 +168,17 @@ var vnllPracabar = {
 			event.stopPropagation();
 			event.preventDefault();
 			
-			var $t 			= $(this),
-				page 		= $('#inputPage').val(),
-				time 		= $('#inputTime').val(),
-				name 		= $('#inputName').val(),
-				$message 	= $("#message"),
-				averageMins = null,
-				minTotal 	= null;
+			var $t 				= $(this),
+				page 			= $('#inputPage').val(),
+				time 			= $('#inputTime').val(),
+				name 			= $('#inputName').val(),
+				$message 		= $("#message"),
+				averageMins 	= null,
+				minTotal 		= null,
+				caracMin		= null,
+				caracAverage	= null,
+				intro 			= null;
+
 			
 			$t.addClass('disabled');
 			$('.loading').removeClass('hidden');
@@ -193,20 +191,25 @@ var vnllPracabar = {
 					return false;
 				} else {
 					if ( vnllPracabar.average !== null) {
-						averageMins = Math.round(vnllPracabar.average / 60 / 6); // since we have 1200 caract. and a normal page have 200.
-						// if the user read it too fast;
-						averageMins = averageMins === 0 ? 1 : averageMins;
+						caracMin = (200 * 60000);
+						caracAverage = Math.floor( caracMin / vnllPracabar.average );
+						averageMins = caracAverage / 500;
 						
-						minTotal = page * averageMins;
+						var commaAverageMins = averageMins.toFixed(2).replace(".", ",");
+
+						intro = 'Você têm velocidade média de  ' + caracAverage + ' palavras por minuto, isso resulta em ' +commaAverageMins;
 
 					} else {
 						averageMins = vnllPracabar.averageBt;
-						minTotal = page / averageMins;
+						intro = 'Você lê em média ' + averageMins;
 					}
+
+					minTotal = page / averageMins;
 
 					var days = Math.round(minTotal / time),
 						date = new Date();
 						date.setDate(date.getDate() + days);
+
 
 					var day = date.getDate(),
 						month = date.getMonth() + 1,
@@ -217,9 +220,10 @@ var vnllPracabar = {
 					$('.loading').addClass('hidden');
 					$('.addthis_inline_share_toolbox').removeClass('hidden');
 
-					var pagina = averageMins == 1 ? 'página' : 'páginas';
+					var pages = averageMins == 1 ? 'página' : 'páginas';
 					
-					$message.html('Você lê em média ' + averageMins + ' ' + pagina + ' por minuto e a estimativa é que faltam ' + days + ' dias pracabar a leitura de ' + name + '. Isso será no dia ' + day  + "/" + month + "/" + year + ". Boa Leitura!").addClass('alert alert-success').removeClass('alert-danger');
+
+					$message.html(intro + ' ' + pages + ' por minuto e a estimativa é que faltam ' + days + ' dias pracabar a leitura de ' + name + '. Isso será no dia ' + day  + "/" + month + "/" + year + ". Boa Leitura!").addClass('alert alert-success').removeClass('alert-danger');
 
 					return false;
 				}
