@@ -112,7 +112,7 @@ var vnllPracabar = {
 
 		// or if users already knows his average
 		$('.known-average').find('button').click( function() {
-			vnllPracabar.averageBt = $('#inputAverage').val().match(/\d+/g);
+			vnllPracabar.averageBt = $('#inputAverage').val();
 			
 			closeText();
 		});
@@ -136,7 +136,7 @@ var vnllPracabar = {
 			var $t 				= $(this),
 				page 			= $('#inputPage').val(),
 				time 			= $('#inputTime').val(),
-				name 			= $('#inputName').val(),
+				name 			= $('#inputName').val().replace(/</g, "&lt;").replace(/>/g, "&gt;"),
 				$message 		= $("#message"),
 				averageMins 	= null,
 				minTotal 		= null,
@@ -166,7 +166,8 @@ var vnllPracabar = {
 
 					} else {
 						averageMins = vnllPracabar.averageBt;
-						intro = 'Você lê em média ' + averageMins;
+						var commaAverageMins = averageMins.replace(".", ",");
+						intro = 'Você lê em média ' + commaAverageMins;
 					}
 
 					minTotal = page / averageMins;
