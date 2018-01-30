@@ -1,0 +1,155 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Fonts and colors
+2.0 - Basic
+3.0 - Media Query
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1.0 - Fonts and Colors
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+2.0 - Basic
+--------------------------------------------------------------*/
+body {
+  background: #f3f3f3;
+  font: 400 16px 'Scope One', serif; }
+
+.modal-legal .modal-body {
+  font-size: 0.8em;
+  max-height: 400px;
+  overflow: scroll; }
+.modal-legal dt {
+  font-weight: bold; }
+.modal-legal dd {
+  margin-bottom: 10px; }
+
+h2, h3 {
+  margin-top: 0; }
+
+hr {
+  border-color: black; }
+
+#vnll {
+  background: #444;
+  border-radius: 4px 0 0 4px;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 14px;
+  float: right;
+  padding: 2px 9px;
+  position: absolute;
+  right: 0; }
+
+.text-hidden {
+  display: block;
+  height: 0;
+  text-indent: -99999em; }
+
+/* header */
+#logo {
+  font: bold 5em 'Libre Baskerville', serif;
+  margin-bottom: 30px; }
+#logo small {
+  display: block;
+  font-size: 0.22em;
+  margin-top: -15px; }
+
+.header p {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+  vertical-align: top; }
+
+/* leitura */
+#select-text {
+  float: left; }
+
+.actions {
+  float: left;
+  margin-left: 10px; }
+
+.play {
+  display: inline-block;
+  margin-left: 5px; }
+
+.dropdown {
+  display: inline-block; }
+.dropdown .dropdown-menu span {
+  background: #444;
+  border-radius: 5px;
+  color: white;
+  font-size: 10px;
+  padding: 4px; }
+.dropdown .dropdown-menu > li:not(.divider) {
+  font-weight: bold;
+  padding: 3px 7px; }
+.dropdown .dropdown-menu > li > a {
+  cursor: pointer;
+  padding: 3px 25px; }
+.dropdown .dropdown-menu > li > a.selected {
+  text-decoration: underline; }
+
+.stop {
+  float: right; }
+
+.known-average {
+  clear: both; }
+.known-average .form-group {
+  display: inline-block; }
+.known-average label {
+  display: block; }
+.known-average .form-control {
+  width: 100%; }
+.known-average :before {
+  clear: both;
+  content: " ";
+  display: inline-block;
+  margin-top: 10px; }
+
+#reading-box {
+  opacity: 0.2;
+  margin-top: 30px; }
+#reading-box p {
+  font-size: 1em; }
+
+.alert-average {
+  margin: 0; }
+
+/* sobre seu livro*/
+.about-book {
+  background: none; }
+
+.message-content {
+  margin-top: 50px; }
+
+.footer {
+  border-top: 1px solid #ddd;
+  margin: 50px 0 0;
+  padding: 30px 15px; }
+
+/*--------------------------------------------------------------
+3.0 - Media Query
+--------------------------------------------------------------*/
+/* Small devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+  #logo {
+    font-size: 3em; }
+
+  #logo small {
+    margin-top: -10px; }
+
+  .header p {
+    display: block;
+    font-size: 1.2em;
+    width: auto; } }
+/* Medium devices (desktops, 769px and up) */
+@media screen and (min-width: 769px) {
+  .known-average button {
+    vertical-align: bottom; } }
+/* Large devices (large desktops, 1200px and up) */
+
+/*# sourceMappingURL=style.css.map */
